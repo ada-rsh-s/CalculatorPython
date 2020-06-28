@@ -50,11 +50,13 @@ class calc:
         window.geometry("+{}+{}".format(positionRight, positionDown))
         window.geometry("512x520")
         window.title("CALCULATOR")
-        window.configure(bg="#dedede")
+        window.configure(bg="#A37B5C")
         window.resizable(0, 0)
-        self.e = Entry(window, state=NORMAL, justify=RIGHT, bg="white", fg="black", font=("Times New Roman bold", 20),
-                       borderwidth=8,
+        self.e = Entry(window, state=NORMAL, justify=RIGHT, bg="light grey", fg="black",
+                       font=("Times New Roman bold", 20),
+
                        relief="sunken")
+        self.e.configure(highlightbackground="red", borderwidth=8)
         self.e.bind("<a>", "no")
         self.e.bind("<b>", "no")
         self.e.bind("<c>", "no")
