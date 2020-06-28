@@ -6,6 +6,11 @@
       <w>buttonmultiply</w>
       <w>buttonplus</w>
       <w>buttonpoint</w>
+      <w>clearall</w>
+      <w>clearnow</w>
+      <w>getandreplace</w>
+      <w>sqrtval</w>
+      <w>squareroot</w>
     </words>
   </dictionary>
 </component>
