@@ -51,12 +51,12 @@ class calc:
         positionRight = int(window.winfo_screenwidth() / 2.25 - windowWidth / 1)
         positionDown = int(window.winfo_screenheight() / 2.7 - windowHeight / 1)
         window.geometry("+{}+{}".format(positionRight, positionDown))
-        window.geometry("512x520")
+        window.geometry("526x520")
         window.title("CALCULATOR")
         window.configure(bg="#A37B5C")
         window.resizable(0, 0)
         self.e = Entry(window, state=NORMAL, justify=RIGHT, bg="light grey", fg="black",
-                       font=("Times New Roman bold", 20),
+                       font=("Times New Roman bold", 25),
 
                        relief="sunken")
         self.e.configure(highlightbackground="red", borderwidth=8)
@@ -125,7 +125,7 @@ class calc:
         self.e.bind(";", "no")
         self.e.bind(",", "no")
         self.e.bind("'", "no")
-        self.e.grid(row=0, column=0, ipady=5, ipadx=88, padx=18, pady=30)
+        self.e.grid(row=0, column=0, ipady=10, ipadx=65, padx=18, pady=20)
         self.e.focus_set()
         Button(window, font=("Times New Roman bold", 16,), text="AC", command=lambda: self.clearall(),
                fg='black',
