@@ -20,13 +20,12 @@ class calc:
             self.e.insert(0, self.value)
 
     def squareroot(self):
-        self.getandreplace()
         try:
             self.value = eval(self.newtext)
         except SyntaxError or NameError:
             self.e.delete(0, END)
             self.e.insert(0, 'Invalid Input!')
-        if float(self.newtext) < 0:
+        if int(self.newtext) < 0:
             self.e.delete(0, END)
             self.e.insert(0, 'Invalid Input!')
         else:
@@ -51,12 +50,12 @@ class calc:
         positionRight = int(window.winfo_screenwidth() / 2.25 - windowWidth / 1)
         positionDown = int(window.winfo_screenheight() / 2.7 - windowHeight / 1)
         window.geometry("+{}+{}".format(positionRight, positionDown))
-        window.geometry("512x520")
+        window.geometry("528x520")
         window.title("CALCULATOR")
         window.configure(bg="#A37B5C")
         window.resizable(0, 0)
         self.e = Entry(window, state=NORMAL, justify=RIGHT, bg="light grey", fg="black",
-                       font=("Times New Roman bold", 20),
+                       font=("Times New Roman bold", 25),
 
                        relief="sunken")
         self.e.configure(highlightbackground="red", borderwidth=8)
@@ -125,7 +124,7 @@ class calc:
         self.e.bind(";", "no")
         self.e.bind(",", "no")
         self.e.bind("'", "no")
-        self.e.grid(row=0, column=0, ipady=5, ipadx=88, padx=18, pady=30)
+        self.e.grid(row=0, column=0, ipady=10, ipadx=65, padx=18, pady=20)
         self.e.focus_set()
         Button(window, font=("Times New Roman bold", 16,), text="AC", command=lambda: self.clearall(),
                fg='black',
@@ -181,34 +180,34 @@ class calc:
         Button(window, font=("Times New Roman bold", 16,),
                text="+", command=lambda: self.action('+'), fg='black', bg='#9da39d', cursor="hand2").place(x=345, y=262,
                                                                                                            height=153,
-                                                                                                           width=45)
+                                                                                                           width=60)
         Button(window, font=("Times New Roman bold", 16,), text="=", command=lambda: self.equals(),
                fg='black',
                bg='#9da39d',
-               cursor="hand2").place(x=345, y=428, height=70, width=150)
+               cursor="hand2").place(x=345, y=428, height=70, width=162)
 
         Button(window, font=("Times New Roman bold", 16,), text="-", command=lambda: self.action('-'), fg='black',
                bg='#9da39d',
                cursor="hand2").place(x=345, y=110,
                                      height=140,
-                                     width=45)
+                                     width=60)
         Button(window, font=("Times New Roman bold", 16,), text="/", command=lambda: self.action('/'), fg='black',
                bg='#9da39d',
-               cursor="hand2").place(x=405, y=344,
+               cursor="hand2").place(x=419, y=344,
                                      height=70,
                                      width=87)
-        Button(window, font=("Times New Roman bold", 16,), text="x", command=lambda: self.action("*"),
+        Button(window, font=("Times New Roman bold", 16,), text="*", command=lambda: self.action("*"),
                fg='black',
                bg='#9da39d',
-               cursor="hand2").place(x=405, y=262, height=70, width=87)
+               cursor="hand2").place(x=419, y=262, height=70, width=87)
         Button(window, font=("Times New Roman bold", 16,), text="π", command=lambda: self.action('3.14'),
                fg='black',
                bg='#9da39d',
-               cursor="hand2").place(x=405, y=110, height=60, width=87)
+               cursor="hand2").place(x=419, y=110, height=60, width=87)
         Button(window, font=("Times New Roman bold", 16,), text="√", command=lambda: self.squareroot(),
                fg='black',
                bg='#9da39d',
-               cursor="hand2").place(x=405, y=180, height=70, width=87)
+               cursor="hand2").place(x=419, y=180, height=70, width=87)
 
 
 window = Tk()
