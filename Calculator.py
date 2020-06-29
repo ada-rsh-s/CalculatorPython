@@ -20,12 +20,13 @@ class calc:
             self.e.insert(0, self.value)
 
     def squareroot(self):
+        self.getandreplace()
         try:
             self.value = eval(self.newtext)
         except SyntaxError or NameError:
             self.e.delete(0, END)
             self.e.insert(0, 'Invalid Input!')
-        if int(self.newtext) < 0:
+        if float(self.newtext) < 0:
             self.e.delete(0, END)
             self.e.insert(0, 'Invalid Input!')
         else:
@@ -50,12 +51,12 @@ class calc:
         positionRight = int(window.winfo_screenwidth() / 2.25 - windowWidth / 1)
         positionDown = int(window.winfo_screenheight() / 2.7 - windowHeight / 1)
         window.geometry("+{}+{}".format(positionRight, positionDown))
-        window.geometry("528x520")
+        window.geometry("512x520")
         window.title("CALCULATOR")
         window.configure(bg="#A37B5C")
         window.resizable(0, 0)
         self.e = Entry(window, state=NORMAL, justify=RIGHT, bg="light grey", fg="black",
-                       font=("Times New Roman bold", 25),
+                       font=("Times New Roman bold", 20),
 
                        relief="sunken")
         self.e.configure(highlightbackground="red", borderwidth=8)
@@ -124,7 +125,7 @@ class calc:
         self.e.bind(";", "no")
         self.e.bind(",", "no")
         self.e.bind("'", "no")
-        self.e.grid(row=0, column=0, ipady=10, ipadx=65, padx=18, pady=20)
+        self.e.grid(row=0, column=0, ipady=5, ipadx=88, padx=18, pady=30)
         self.e.focus_set()
         Button(window, font=("Times New Roman bold", 16,), text="AC", command=lambda: self.clearall(),
                fg='black',
