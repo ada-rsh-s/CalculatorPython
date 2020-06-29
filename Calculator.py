@@ -12,7 +12,7 @@ class calc:
         self.getandreplace()
         try:
             self.value = eval(self.newtext)
-        except (SyntaxError, NameError, ZeroDivisionError):
+        except SyntaxError or ZeroDivisionError:
             self.e.delete(0, END)
             self.e.insert(0, 'Invalid Input!')
         else:
@@ -24,6 +24,9 @@ class calc:
         try:
             self.value = eval(self.newtext)
         except SyntaxError or NameError:
+            self.e.delete(0, END)
+            self.e.insert(0, 'Invalid Input!')
+        if float(self.newtext) < 0:
             self.e.delete(0, END)
             self.e.insert(0, 'Invalid Input!')
         else:
