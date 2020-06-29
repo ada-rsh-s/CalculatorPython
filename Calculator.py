@@ -125,6 +125,12 @@ class calc:
         self.e.bind(";", "no")
         self.e.bind(",", "no")
         self.e.bind("'", "no")
+        self.e.bind("[", "no")
+        self.e.bind("]", "no")
+        self.e.bind("{", "no")
+        self.e.bind("}", "no")
+        self.e.bind("|", "no")
+
         self.e.grid(row=0, column=0, ipady=10, ipadx=65, padx=18, pady=20)
         self.e.focus_set()
         Button(window, font=("Times New Roman bold", 16,), text="AC", command=lambda: self.clearall(),
