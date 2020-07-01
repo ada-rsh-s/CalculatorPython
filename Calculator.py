@@ -23,16 +23,18 @@ class calc:
         self.getandreplace()
         try:
             self.value = eval(self.newtext)
-        except SyntaxError or NameError:
+        except SyntaxError:
             self.e.delete(0, END)
             self.e.insert(0, 'Invalid Input!')
-        if float(self.newtext) < 0:
-            self.e.delete(0, END)
-            self.e.insert(0, 'Invalid Input!')
-        else:
-            self.sqrtval = math.sqrt(self.value)
-            self.e.delete(0, END)
-            self.e.insert(0, self.sqrtval)
+        if self.newtext != '' and self.newtext != '-' and self.newtext != 'Invalid Input!' and self.newtext != '+'\
+                and self.newtext != '*' and self.newtext != '/':
+            if float(self.newtext) < 0:
+                self.e.delete(0, END)
+                self.e.insert(0, 'Invalid Input!')
+            else:
+                self.sqrtval = math.sqrt(self.value)
+                self.e.delete(0, END)
+                self.e.insert(0, self.sqrtval)
 
     def clearall(self):
         self.e.delete(0, END)
